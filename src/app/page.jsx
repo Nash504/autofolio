@@ -50,6 +50,14 @@ export default function Home() {
               />
             ))}
           </div>
+          <div className=" left-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center z-50   ">
+            <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
+              Email
+            </button>
+            <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
+              Contact
+            </button>
+          </div>
         </CardContent>
         <CardFooter>
           <div className="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center z-50 sm:hidden">
@@ -66,7 +74,6 @@ export default function Home() {
         <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
           {/* Custom backdrop for glass effect */}
           <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-
           <DialogContent className="bg-white border border-white shadow-lg ">
             <DialogHeader>
               <DialogTitle>{selectedProject.title}</DialogTitle>
