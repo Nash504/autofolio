@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import {
   Card,
   CardContent,
@@ -7,10 +9,24 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const projects = [
+    { title: "Work" },
+    { title: "Services" },
+    { title: "About" },
+    { title: "Plans" },
+  ];
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4">
       <Card className="w-full max-w-[95vw] border-2 shadow-lg">
@@ -26,11 +42,13 @@ export default function Home() {
         </CardHeader>
         <CardContent className="flex-grow max-w-[90vw] mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {/* Project Card 1 */}
-            <ProjectCard title="Work" />
-            <ProjectCard title="Services" />
-            <ProjectCard title="About" />
-            <ProjectCard title="Plans" />
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))}
           </div>
         </CardContent>
         <CardFooter className="flex flex-row justify-center gap-4 mt-10">
@@ -45,7 +63,15 @@ export default function Home() {
           </Button>
         </CardFooter>
       </Card>
+      {selectedProject && (
+        <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>{selectedProject.title}</DialogTitle>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }
-
