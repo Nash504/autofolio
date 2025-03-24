@@ -1,14 +1,12 @@
-import {
-    Card,
-    CardTitle,
-  } from "@/components/ui/card";
+import { Card, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
-
-
-export default function ProjectCard({ title }){
-    return(
-    <Card className="border shadow bg-transparent p-6 w-full max-w-[400px] ">
+export default function ProjectCard({ title, onClick }) {
+  return (
+    <Card
+      onClick={onClick}
+      className="border shadow bg-transparent p-6 w-full max-w-[400px] transition-trasform duration-300 ease-in-out hover:scale-105 hover:shadow-lg "
+    >
       <div className="flex flex-col items-center">
         <div className="relative w-full h-[120px] mt-4 rounded-lg overflow-hidden bg-gray-100">
           <Image src="/window.svg" fill className="p-3" />
@@ -19,5 +17,6 @@ export default function ProjectCard({ title }){
           </CardTitle>
         </div>
       </div>
-    </Card>)
+    </Card>
+  );
 }
