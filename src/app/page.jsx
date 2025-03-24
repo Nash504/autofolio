@@ -65,7 +65,10 @@ export default function Home() {
       </Card>
       {selectedProject && (
         <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent>
+          {/* Custom backdrop for glass effect */}
+          <div className="fixed inset-0 bg-white/10 backdrop-blur-md" />
+
+          <DialogContent className="bg-white/30 border border-white/20 shadow-lg backdrop-blur-lg">
             <DialogHeader>
               <DialogTitle>{selectedProject.title}</DialogTitle>
             </DialogHeader>
