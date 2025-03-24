@@ -27,6 +27,7 @@ export default function Home() {
     { title: "About" },
     { title: "Plans" },
   ];
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4">
       <Card className="w-full max-w-[95vw] border-2 shadow-lg">
@@ -40,6 +41,7 @@ export default function Home() {
             exceptional design and development solutions.
           </CardDescription>
         </CardHeader>
+
         <CardContent className="flex-grow max-w-[90vw] mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {projects.map((project, index) => (
@@ -50,31 +52,38 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className=" left-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center z-50   ">
-            <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
-              Email
-            </button>
-            <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
-              Contact
-            </button>
-          </div>
         </CardContent>
-        <CardFooter>
-          <div className="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center z-50 sm:hidden">
-            <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
-              Email
-            </button>
-            <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
-              Contact
-            </button>
-          </div>
+
+        {/* Footer for Large Screens */}
+        <CardFooter className="lg:flex hidden justify-center gap-4 mt-10">
+          <Button className="text-lg py-2 px-6 rounded-full bg-black text-white hover:bg-gray-800">
+            Email
+          </Button>
+          <Button
+            variant="outline"
+            className="text-lg py-2 px-6 rounded-full border-black text-black hover:bg-gray-100"
+          >
+            Contact
+          </Button>
         </CardFooter>
       </Card>
+
+      {/* Sticky Footer for Mobile */}
+      <div className="mt-4 fixed bottom-0 left-0 w-full bg-white/20 backdrop-blur-md border-t border-gray-200 p-2 flex justify-between items-center lg:hidden">
+        <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
+          Email
+        </button>
+        <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
+          Contact
+        </button>
+      </div>
+
+      {/* Dialog (Glass Background Effect) */}
       {selectedProject && (
         <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
           {/* Custom backdrop for glass effect */}
           <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-          <DialogContent className="bg-white border border-white shadow-lg ">
+          <DialogContent className="bg-white border border-white shadow-lg">
             <DialogHeader>
               <DialogTitle>{selectedProject.title}</DialogTitle>
             </DialogHeader>
