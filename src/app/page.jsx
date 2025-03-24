@@ -24,71 +24,12 @@ export default function Home() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow max-w-[90vw] mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {/* Project Card 1 */}
-            <Card className="border shadow bg-transparent p-4">
-              <div className="space-y-2">
-                <CardTitle className="text-xl font-semibold">
-                  Project Name
-                </CardTitle>
-                <CardDescription className="text-sm font-normal">
-                  This consists of the project description. Explain key features
-                  and what it does.
-                </CardDescription>
-              </div>
-              <div className="relative w-full h-[200px] mt-4 rounded-lg overflow-hidden bg-gray-100">
-                <Image
-                  src="/window.svg"
-                  alt="Project Image"
-                  fill
-                  style={{ objectFit: "contain" }}
-                  className="p-3"
-                />
-              </div>
-            </Card>
-
-            {/* Project Card 2 */}
-            <Card className="border shadow bg-transparent p-4">
-              <div className="space-y-2">
-                <CardTitle className="text-xl font-semibold">
-                  Another Project
-                </CardTitle>
-                <CardDescription className="text-sm font-normal">
-                  A second showcase project with a unique description. Clean and
-                  minimal.
-                </CardDescription>
-              </div>
-              <div className="relative w-full h-[200px] mt-4 rounded-lg overflow-hidden bg-gray-100">
-                <Image
-                  src="/window.svg"
-                  alt="Another Project Image"
-                  fill
-                  style={{ objectFit: "contain" }}
-                  className="p-3"
-                />
-              </div>
-            </Card>
-
-            {/* Project Card 3 */}
-            <Card className="border shadow bg-transparent p-4">
-              <div className="space-y-2">
-                <CardTitle className="text-xl font-semibold">
-                  Third Project
-                </CardTitle>
-                <CardDescription className="text-sm font-normal">
-                  Another entry showcasing work with a sleek design.
-                </CardDescription>
-              </div>
-              <div className="relative w-full h-[200px] mt-4 rounded-lg overflow-hidden bg-gray-100">
-                <Image
-                  src="/window.svg"
-                  alt="Third Project Image"
-                  fill
-                  style={{ objectFit: "contain" }}
-                  className="p-3"
-                />
-              </div>
-            </Card>
+            <ProjectCard title="Work" />
+            <ProjectCard title="Services" />
+            <ProjectCard title="About" />
+            <ProjectCard title="Plans" />
           </div>
         </CardContent>
         <CardFooter className="flex flex-row justify-center gap-4 mt-10">
@@ -106,3 +47,17 @@ export default function Home() {
     </div>
   );
 }
+const ProjectCard = ({ title }) => (
+  <Card className="border shadow bg-transparent p-6 w-full max-w-[400px] ">
+    <div className="flex flex-col items-center">
+      <div className="relative w-full h-[120px] mt-4 rounded-lg overflow-hidden bg-gray-100">
+        <Image src="/window.svg" fill className="p-3" />
+      </div>
+      <div>
+        <CardTitle className=" justify-center p-8 text-2xl font-bold mt-2 -mb-8">
+          {title}
+        </CardTitle>
+      </div>
+    </div>
+  </Card>
+);
