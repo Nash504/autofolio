@@ -6,64 +6,98 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <Card className="w-[95%] h-[95vh] overflow-auto">
-        <CardHeader className="text-center">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4">
+      <Card className="w-full max-w-[95vw] border-2 shadow-lg">
+        <CardHeader className="text-center mb-6">
           <CardTitle className="text-5xl font-bold">
             Code<span className="text-purple-600">X</span>
           </CardTitle>
-          <CardDescription className="text-xl font-bold text-black ">
+          <CardDescription className="text-lg text-black mt-2 max-w-3xl mx-auto">
             Partnering with{" "}
             <span className="text-gray-500">product-led founders</span> to craft
             exceptional design and development solutions.
           </CardDescription>
         </CardHeader>
-        <CardContent className="flex-grow">
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Card className="p-6 md:w-2/3 lg:w-1/2 mx-auto shadow-md border bg-white flex flex-col gap-4">
-                <CardHeader className="px-0 pt-0">
-                  <CardTitle className="text-2xl font-bold">
-                    Project Name
-                  </CardTitle>
-                  <CardDescription className={"text-md"}>
-                    This consists of the project description
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="px-0 space-y-4">
-                  <div className="border-b pb-3">
-                    <h3 className="font-medium">UI/UX Design</h3>
-                    <p className="text-sm text-gray-600">
-                      User-centered interfaces that drive engagement
-                    </p>
-                  </div>
-                  <div className="border-b pb-3">
-                    <h3 className="font-medium">Frontend Development</h3>
-                    <p className="text-sm text-gray-600">
-                      Modern, responsive web applications with NextJS
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium">Backend Solutions</h3>
-                    <p className="text-sm text-gray-600">
-                      Scalable API architecture and database design
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+        <CardContent className="flex-grow max-w-[90vw] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Project Card 1 */}
+            <Card className="border shadow bg-transparent p-4">
+              <div className="space-y-2">
+                <CardTitle className="text-xl font-semibold">
+                  Project Name
+                </CardTitle>
+                <CardDescription className="text-sm font-normal">
+                  This consists of the project description. Explain key features
+                  and what it does.
+                </CardDescription>
+              </div>
+              <div className="relative w-full h-[200px] mt-4 rounded-lg overflow-hidden bg-gray-100">
+                <Image
+                  src="/window.svg"
+                  alt="Project Image"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="p-3"
+                />
+              </div>
+            </Card>
+
+            {/* Project Card 2 */}
+            <Card className="border shadow bg-transparent p-4">
+              <div className="space-y-2">
+                <CardTitle className="text-xl font-semibold">
+                  Another Project
+                </CardTitle>
+                <CardDescription className="text-sm font-normal">
+                  A second showcase project with a unique description. Clean and
+                  minimal.
+                </CardDescription>
+              </div>
+              <div className="relative w-full h-[200px] mt-4 rounded-lg overflow-hidden bg-gray-100">
+                <Image
+                  src="/window.svg"
+                  alt="Another Project Image"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="p-3"
+                />
+              </div>
+            </Card>
+
+            {/* Project Card 3 */}
+            <Card className="border shadow bg-transparent p-4">
+              <div className="space-y-2">
+                <CardTitle className="text-xl font-semibold">
+                  Third Project
+                </CardTitle>
+                <CardDescription className="text-sm font-normal">
+                  Another entry showcasing work with a sleek design.
+                </CardDescription>
+              </div>
+              <div className="relative w-full h-[200px] mt-4 rounded-lg overflow-hidden bg-gray-100">
+                <Image
+                  src="/window.svg"
+                  alt="Third Project Image"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="p-3"
+                />
+              </div>
+            </Card>
           </div>
         </CardContent>
-        <CardFooter className="flex flex-row justify-center gap-4">
-          <Button className="text-lg py-2 px-4 rounded-4xl">Email</Button>
+        <CardFooter className="flex flex-row justify-center gap-4 mt-10">
+          <Button className="text-lg py-2 px-6 rounded-full bg-black text-white hover:bg-gray-800">
+            Email
+          </Button>
           <Button
             variant="outline"
-            className="text-lg py-2 px-4 rounded-4xl bg-neutral-200"
+            className="text-lg py-2 px-6 rounded-full border-black text-black hover:bg-gray-100"
           >
             Book a call
           </Button>
