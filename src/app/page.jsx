@@ -51,24 +51,23 @@ export default function Home() {
             ))}
           </div>
         </CardContent>
-        <CardFooter className="flex flex-row justify-center gap-4 mt-10">
-          <Button className="text-lg py-2 px-6 rounded-full bg-black text-white hover:bg-gray-800">
-            Email
-          </Button>
-          <Button
-            variant="outline"
-            className="text-lg py-2 px-6 rounded-full border-black text-black hover:bg-gray-100"
-          >
-            Book a call
-          </Button>
+        <CardFooter>
+          <div className="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-200 p-4 flex justify-between items-center z-50 sm:hidden">
+            <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
+              Email
+            </button>
+            <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
+              Contact
+            </button>
+          </div>
         </CardFooter>
       </Card>
       {selectedProject && (
         <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
           {/* Custom backdrop for glass effect */}
-          <div className="fixed inset-0 bg-white/10 backdrop-blur-md" />
+          <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
 
-          <DialogContent className="bg-white/30 border border-white/20 shadow-lg backdrop-blur-lg">
+          <DialogContent className="bg-white border border-white shadow-lg ">
             <DialogHeader>
               <DialogTitle>{selectedProject.title}</DialogTitle>
             </DialogHeader>
