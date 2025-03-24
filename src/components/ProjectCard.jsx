@@ -6,7 +6,7 @@ export default function ProjectCard({ title, onClick }) {
     <Card
       onClick={onClick}
       className="border shadow bg-transparent p-6 w-full max-w-[400px] cursor-pointer 
-                 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+                 transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:border-purple-600"
     >
       <div className="flex flex-col items-center">
         <div className="relative w-full h-[120px] mt-4 rounded-lg overflow-hidden bg-gray-100">
