@@ -38,7 +38,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white pb-12">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white pt-4 pb-8">
       <Card className="w-full max-w-[95vw] border-2 shadow-lg">
         <CardHeader className="text-center mb-6">
           <CardTitle className="text-5xl font-bold">
@@ -94,22 +94,21 @@ export default function Home() {
         </Link>
       </div>
       {/* Dialog (Glass Background Effect) */}
-        {selectedProject && (
-          <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
-            <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-            <DialogContent className="bg-white border border-white shadow-lg p-6 max-h-[90vh] overflow-y-auto w-[95vw] max-w-4xl mx-auto scrollbar-hide">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold mb-4">
-              {selectedProject.title === "Work" ? (
-            <WorkPage />
-              ) : selectedProject.title === "Services" ? (
-            <ServicesPage />
-              ) : (
-            selectedProject.title
-              )}
-            </DialogTitle>
-          </DialogHeader>
-
+      {selectedProject && (
+        <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
+          <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
+          <DialogContent className="bg-white border border-white shadow-lg p-6 max-h-[90vh] overflow-y-auto w-[95vw] max-w-4xl mx-auto scrollbar-hide">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold mb-4">
+                {selectedProject.title === "Work" ? (
+                  <WorkPage />
+                ) : selectedProject.title === "Services" ? (
+                  <ServicesPage />
+                ) : (
+                  selectedProject.title
+                )}
+              </DialogTitle>
+            </DialogHeader>
           </DialogContent>
         </Dialog>
       )}
