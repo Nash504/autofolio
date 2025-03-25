@@ -97,7 +97,7 @@ export default function Home() {
         {selectedProject && (
           <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
             <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-            <DialogContent className="bg-white border border-white shadow-lg p-6 max-h-[90vh] overflow-y-auto w-[95vw] max-w-4xl mx-auto">
+            <DialogContent className="bg-white border border-white shadow-lg p-6 max-h-[90vh] overflow-y-auto w-[95vw] max-w-4xl mx-auto scrollbar-hide">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold mb-4">
               {selectedProject.title === "Work" ? (
