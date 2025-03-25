@@ -7,13 +7,11 @@ import BackToHome from "@/components/BackToHome";
 
 export default function EmailPage() {
   return (
-    <>
+    <div className="h-full flex flex-col justify-center bg-white p-2 md:p-8">
       <BackToHome />
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white p-2 md:p-8 ">
+      <div className="h-full flex flex-col items-center justify-center bg-white  md:p-8">
         <div className="w-full max-w-[600px] mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold -mt-72 mb-6">
-            Email Us
-          </h1>
+          <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-6">Email Us</h1>
           <p className="text-black/70 mb-8">
             Send us an email and we'll get back to you as soon as possible.
           </p>
@@ -63,6 +61,6 @@ export default function EmailPage() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
