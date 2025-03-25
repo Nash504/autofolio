@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 
 import ProjectCard from "@/components/ProjectCard";
+import WorkPage from "@/components/Work";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -84,7 +85,13 @@ export default function Home() {
           <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
           <DialogContent className="bg-white border border-white shadow-lg">
             <DialogHeader>
-              <DialogTitle>{selectedProject.title}</DialogTitle>
+              <DialogTitle>
+                {selectedProject.title === "Work" ? (
+                  <WorkPage />
+                ) : (
+                  selectedProject.title
+                )}
+              </DialogTitle>
             </DialogHeader>
           </DialogContent>
         </Dialog>
