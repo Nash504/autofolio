@@ -19,6 +19,7 @@ import {
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
 import WorkPage from "@/components/Work";
+import ServicesPage from "@/components/services";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -102,11 +103,14 @@ export default function Home() {
                 {selectedProject.title === "Work" ? (
                   <WorkPage />
                 ) : (
-                  selectedProject.title
-                )}
+                  selectedProject.title ==="Services" ? (
+                    <ServicesPage />
+                  ) : (
+                    selectedProject.title
+                ))}
               </DialogTitle>
             </DialogHeader>
-            {selectedProject.items && (
+            {/* {selectedProject.items && (
               <ul className="mt-4 space-y-2 text-lg">
                 {selectedProject.items.map((item, index) => (
                   <li key={index} className="text-gray-700">
@@ -114,7 +118,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            )}
+            )} */}
           </DialogContent>
         </Dialog>
       )}
