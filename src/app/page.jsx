@@ -25,7 +25,6 @@ export default function Home() {
     { title: "Work" },
     { title: "Services" },
     { title: "About" },
-    { title: "Plans" },
   ];
 
   return (
@@ -43,7 +42,7 @@ export default function Home() {
         </CardHeader>
 
         <CardContent className="flex-grow max-w-[90vw] mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <ProjectCard
                 key={index}
