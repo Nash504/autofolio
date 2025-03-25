@@ -17,14 +17,20 @@ import {
 } from "@/components/ui/dialog";
 
 import ProjectCard from "@/components/ProjectCard";
-import WorkPage from "@/components/Work";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
     { title: "Work" },
-    { title: "Services" },
+    {
+      title: "Services",
+      items: [
+        "Websites & Web Applications",
+        "WordPress Sites",
+        "Mobile Applications",
+      ],
+    },
     { title: "About" },
   ];
 
@@ -56,34 +62,39 @@ export default function Home() {
 
         {/* Footer for Large Screens */}
         <CardFooter className="lg:flex hidden justify-center gap-4 mt-10">
-          <Button className="text-lg py-2 px-6 rounded-full bg-black text-white hover:bg-gray-800">
-            Email
-          </Button>
-          <Button
-            variant="outline"
-            className="text-lg py-2 px-6 rounded-full border-black text-black hover:bg-gray-100"
-          >
-            Contact
-          </Button>
+          <Link href="/email">
+            <Button className="text-lg py-2 px-6 rounded-full bg-black text-white hover:bg-gray-800">
+              Email
+            </Button>
+          </Link>
+          <Link href="/contact">
+            <Button
+              variant="outline"
+              className="text-lg py-2 px-6 rounded-full border-black text-black hover:bg-gray-100"
+            >
+              Contact
+            </Button>
+          </Link>
         </CardFooter>
       </Card>
-
       {/* Sticky Footer for Mobile */}
       <div className="mt-4 fixed bottom-0 left-0 w-full bg-white/20 backdrop-blur-md border-t border-gray-200 p-2 flex justify-between items-center lg:hidden">
-        <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
-          Email
-        </button>
-        <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
-          Contact
-        </button>
+        <Link href="/email">
+          <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
+            Email
+          </button>
+        </Link>
+        <Link href="/contact">
+          <button className="border border-black text-black px-6 py-2 rounded-full text-lg">
+            Contact
+          </button>
+        </Link>
       </div>
-
       {/* Dialog (Glass Background Effect) */}
       {selectedProject && (
         <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
-          {/* Custom backdrop for glass effect */}
           <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-          <DialogContent className="bg-white border border-white shadow-lg">
+          <DialogContent className="bg-white border border-white shadow-lg p-6">
             <DialogHeader>
               <DialogTitle>
                 {selectedProject.title === "Work" ? (
@@ -93,6 +104,15 @@ export default function Home() {
                 )}
               </DialogTitle>
             </DialogHeader>
+            {selectedProject.items && (
+              <ul className="mt-4 space-y-2 text-lg">
+                {selectedProject.items.map((item, index) => (
+                  <li key={index} className="text-gray-700">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
           </DialogContent>
         </Dialog>
       )}
