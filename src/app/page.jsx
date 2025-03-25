@@ -38,7 +38,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white pb-12">
       <Card className="w-full max-w-[95vw] border-2 shadow-lg">
         <CardHeader className="text-center mb-6">
           <CardTitle className="text-5xl font-bold">
