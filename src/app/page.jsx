@@ -18,7 +18,7 @@ import {
 
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
-import WorkPage from "@/components/Work";
+import WorkPage from "@/components/work";
 import ServicesPage from "@/components/services";
 
 export default function Home() {
@@ -102,12 +102,11 @@ export default function Home() {
               <DialogTitle>
                 {selectedProject.title === "Work" ? (
                   <WorkPage />
+                ) : selectedProject.title === "Services" ? (
+                  <ServicesPage />
                 ) : (
-                  selectedProject.title ==="Services" ? (
-                    <ServicesPage />
-                  ) : (
-                    selectedProject.title
-                ))}
+                  selectedProject.title
+                )}
               </DialogTitle>
             </DialogHeader>
             {/* {selectedProject.items && (
