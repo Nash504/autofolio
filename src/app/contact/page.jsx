@@ -9,7 +9,7 @@ export default function ContactPage() {
       <BackToHome />
       <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4 md:p-8">
         <div className="w-full max-w-[800px] mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold -mt-72 mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold -mt-32 mb-6">
             Contact Us
           </h1>
           <p className="text-black/70 mb-12 max-w-[600px]">
