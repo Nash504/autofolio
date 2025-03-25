@@ -18,7 +18,7 @@ import {
 
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
-import WorkPage from "@/components/Work";
+import WorkPage from "@/components/work";
 import ServicesPage from "@/components/services";
 
 export default function Home() {
@@ -94,22 +94,31 @@ export default function Home() {
         </Link>
       </div>
       {/* Dialog (Glass Background Effect) */}
-        {selectedProject && (
-          <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
-            <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-            <DialogContent className="bg-white border border-white shadow-lg p-6 max-h-[90vh] overflow-y-auto w-[95vw] max-w-4xl mx-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold mb-4">
-              {selectedProject.title === "Work" ? (
-            <WorkPage />
-              ) : selectedProject.title === "Services" ? (
-            <ServicesPage />
-              ) : (
-            selectedProject.title
-              )}
-            </DialogTitle>
-          </DialogHeader>
-
+      {selectedProject && (
+        <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
+          <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
+          <DialogContent className="bg-white border border-white shadow-lg p-6">
+            <DialogHeader>
+              <DialogTitle>
+                {selectedProject.title === "Work" ? (
+                  <WorkPage />
+                ) : (
+                  selectedProject.title ==="Services" ? (
+                    <ServicesPage />
+                  ) : (
+                    selectedProject.title
+                ))}
+              </DialogTitle>
+            </DialogHeader>
+            {/* {selectedProject.items && (
+              <ul className="mt-4 space-y-2 text-lg">
+                {selectedProject.items.map((item, index) => (
+                  <li key={index} className="text-gray-700">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )} */}
           </DialogContent>
         </Dialog>
       )}
