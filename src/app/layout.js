@@ -9,8 +9,8 @@ const geistSans = Geist({
 const satoshi=localfont({
   name: "Satoshi",
   src:[{
-    path:"../../public/fonts/Satoshi-Regular.ttf",
-    weight:"400"
+    path:"../../public/fonts/Satoshi-Bold.ttf",
+    weight:"700"
   },],
   variable: "--font-satoshi",
 });
