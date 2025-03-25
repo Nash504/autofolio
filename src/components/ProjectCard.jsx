@@ -27,7 +27,7 @@ export default function ProjectCard({ title, onClick }) {
     <Card
       onClick={onClick}
       className="border shadow bg-transparent p-6 w-full max-w-[400px] cursor-pointer 
-                 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] 
+
                  "
     >
       <div className="flex flex-col items-center">
