@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function ProjectCard({ title, onClick }) {
   return (
     <motion.div
-    className="bg-gray-50 rounded-3xl p-4 flex flex-col items-center justify-center cursor-pointer h-full"
+    className=" rounded-3xl p-4 flex flex-col items-center justify-center cursor-pointer h-full"
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{
@@ -26,9 +26,7 @@ export default function ProjectCard({ title, onClick }) {
   >
     <Card
       onClick={onClick}
-      className="border shadow bg-transparent p-6 w-full max-w-[400px] cursor-pointer 
-
-                 "
+      className="border shadow bg-transparent p-6 w-full max-w-[400px] cursor-pointer "
       >
         <div className="flex flex-col items-center">
           <div className="relative w-full h-[100px] mt-4 rounded-lg overflow-hidden bg-gray-100">
