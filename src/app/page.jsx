@@ -23,7 +23,14 @@ export default function Home() {
 
   const projects = [
     { title: "Work" },
-    { title: "Services" },
+    {
+      title: "Services",
+      items: [
+        "Websites & Web Applications",
+        "WordPress Sites",
+        "Mobile Applications",
+      ],
+    },
     { title: "About" },
   ];
 
@@ -66,7 +73,6 @@ export default function Home() {
           </Button>
         </CardFooter>
       </Card>
-
       {/* Sticky Footer for Mobile */}
       <div className="mt-4 fixed bottom-0 left-0 w-full bg-white/20 backdrop-blur-md border-t border-gray-200 p-2 flex justify-between items-center lg:hidden">
         <button className="bg-black text-white px-6 py-2 rounded-full text-lg">
@@ -76,16 +82,23 @@ export default function Home() {
           Contact
         </button>
       </div>
-
       {/* Dialog (Glass Background Effect) */}
       {selectedProject && (
         <Dialog open={true} onOpenChange={() => setSelectedProject(null)}>
-          {/* Custom backdrop for glass effect */}
           <div className="transition-transform duration-500 fixed inset-0 bg-white/10 backdrop-blur-md" />
-          <DialogContent className="bg-white border border-white shadow-lg">
+          <DialogContent className="bg-white border border-white shadow-lg p-6">
             <DialogHeader>
               <DialogTitle>{selectedProject.title}</DialogTitle>
             </DialogHeader>
+            {selectedProject.items && (
+              <ul className="mt-4 space-y-2 text-lg">
+                {selectedProject.items.map((item, index) => (
+                  <li key={index} className="text-gray-700">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
           </DialogContent>
         </Dialog>
       )}
