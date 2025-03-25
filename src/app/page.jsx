@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/dialog";
 
 import ProjectCard from "@/components/ProjectCard";
+import Link from "next/link";
+import WorkPage from "@/components/Work";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
